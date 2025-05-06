@@ -90,3 +90,38 @@ u need some time to switch from cutting vegetables to boiling water.
 | **Analogy**       | One waiter juggling many tables                   | Multiple waiters serving at once                   |
 | **Example tools** | Threads, `ExecutorService`, `CompletableFuture`   | `ForkJoinPool`, parallel streams, multiple threads |
 | **Focus**         | Task management                                   | Performance and speed                              |
+
+## ***-> How to create a thread in java?***
+
+- just create a basic thread object:
+
+```java
+public static void main(String[] args){
+    Thread myVeryFirstThread = new Thread();
+}
+```
+
+- move thread to another class:
+
+```java
+public class MyVeryOwnThreadImplementation extends Thread {
+  
+    @Override
+    public void run(){
+        System.out.println("Siemanko MyVeryOwnThreadImplementation");
+    }
+}
+```
+
+- now let's run it:
+
+```java
+public static void main(String[] args){
+  
+    Thread myVeryFirstThread = new MyVeryOwnThreadImplementation();
+    myVeryFirstThread.start(); // uruchamiamy wyżej zdefiniowany wątek
+    System.out.println("Siemanko main");
+}
+```
+## ***-> Creating a thread with Runnable in java***
+
