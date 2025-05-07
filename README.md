@@ -125,3 +125,64 @@ public static void main(String[] args){
 ```
 ## ***-> Creating a thread with Runnable in java***
 
+- example:
+```java
+public class RunnableThreadImplementation implements Runnable {
+    public void run(){
+        System.out.println("Siema po raz drugi z runnable'a");
+    }
+}
+```
+- now let's run this:
+```java
+public static void main(String[] args){
+    Runnable myRunnable = new RunnableThreadImplementation();
+    Thread thread = new Thread(myRunnable);
+    thread.start();
+}
+```
+
+- we can also use lambda:
+```java
+public static void main(String[] args){
+    Thread thread = new Thread(() -> System.out.println("Siema po raz trzeci z lambdy"));
+    thread.start();
+}
+```
+
+- using lambda with interface Runnable is more preferable method to use
+- give us more flexibility and we are avoiding the single-inheritance problem in java
+
+## ***-> Naming and displaying threads***
+
+- every time we're creating a thread in java the are named like for example:
+thread-0, thread-1, thread-2 etc.
+- to get the name of a thread we can evoke .getName() method on thread object like:
+```java
+System.out.println(Thread.currentThread().getName());
+```
+
+## ***-> How to name my own thread?***
+-what if we want to name a thread ourselfs?
+```java
+Thread firstThread = new Thread("thread-siemanko");
+Thread secondThread = new Thread(myRunnable, "thread-siemanko-z-runnabla");
+```
+
+- also with setName():
+```java
+secondThread.setName("thread-siemanko-by-setter");
+```
+
+## ***-> Pause threads***
+- another useful technique is to sleep a thread:
+```java
+try {
+    Thread.sleep(5000L);
+} catch (InterruptedException ex) {
+    // obsłużenie wyjątku
+}
+```
+
+- the thread goes to sleep for 5 seconds
+
