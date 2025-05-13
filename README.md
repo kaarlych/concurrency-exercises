@@ -186,3 +186,8 @@ try {
 
 - the thread goes to sleep for 5 seconds
 
+## ***-> Multithreading issues***
+
+- two main issues:
+  - race condition 
+  - deadlock 
